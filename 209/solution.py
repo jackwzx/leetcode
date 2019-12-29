@@ -1,33 +1,47 @@
 #!/usr/bin/env python
 
+limit = 7
+
 class Solution(object):
     def answer(self, nums):
         dict = {}
-        maxRepeat = 0
-        maxRepeatValue = 0
+        begin = 0
+        end = 0
+        total = 0
+        isFirst = False
         for i in range(len(nums)):
-            value = int(int(nums[i]))
-            if value in dict:
-                index = dict[value]
-                index.append(i)
-                if maxRepeat < len(index):
-                    maxRepeat = len(index)
-                    maxRepeatValue = value
-                elif maxRepeat == len(index):
-                    list1 = dict[maxRepeatValue]
-                    list2 = dict[value]
-                    if list1[-1]-list1[0] > list2[-1]-list2[0]:
-                        maxRepeat = len(index)
-                        maxRepeatValue = value
+            value = nums[i]
+            if total + value <= limit: 
+                total += value
+                end = i 
+                print("1= begin=%d end=%d total = %d"%(begin, end, total))
             else:
-                dict[value] = [i]
+                if value == nums[begin]:
+                    begin += 1
+                    end = i
+                    print("2= begin=%d end=%d total = %d"%(begin, end, total))
+                elif value > nums[begin]:
+                    end = i
+                    tempSubTotal = nums[begin]
+                    print("3= begin=%d end=%d total = %d"%(begin, end, total))
 
-        return dict[maxRepeatValue][-1] - dict[maxRepeatValue][0] + 1
+                    while(value < tempSubTotal):
+                        begin += 1
+                        tempSubTotal += nums[begin]
+                        print("4= begin=%d end=%d total = %d"%(begin, end, total))
+
+                    total += value
+                    total -= tempSubTotal
+
+        return nums[begin:end+1]
+
 
 if __name__ == '__main__':
-    aList = raw_input()
+    #aList = raw_input()
+    #solution = Solution()
+    #aList = aList.replace(' ', '')
+    #numsList = aList.split(',')
+    #result = solution.answer(numsList)
     solution = Solution()
-    aList = aList.replace(' ', '')
-    numsList = aList.split(',')
-    result = solution.answer(numsList)
+    result = solution.answer([2,3,1,2,4,3])
     print(result)
