@@ -25,7 +25,7 @@ class Solution(object):
                     tempSubTotal = nums[begin]
                     print("3= begin=%d end=%d total = %d"%(begin, end, total))
 
-                    while(value < tempSubTotal):
+                    while(value > tempSubTotal):
                         begin += 1
                         tempSubTotal += nums[begin]
                         print("4= begin=%d end=%d total = %d"%(begin, end, total))

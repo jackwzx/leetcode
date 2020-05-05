@@ -1,1 +1,10 @@
 */*.py~
+*.xcuserstate
+*/*/project.xcworkspace
+*project.xcworkspace
+*xcuserdata
+*UserInterfaceState.xcuserstate
+*project.xcworkspace/
+*xcuserdata/
+*UserInterface.xcuserstate
+*/*.xcodeproj/project.xcworkspace
