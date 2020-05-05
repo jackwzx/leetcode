@@ -16,7 +16,6 @@ class Solution(object):
         return ans
 
 
-
 if __name__ == '__main__':
     aList = raw_input()
     solution = Solution()
@@ -24,4 +23,3 @@ if __name__ == '__main__':
     numsList = aList.split(',')
     result = solution.findMaxConnectOnes(numsList)
     print(result)
-

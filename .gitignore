@@ -1,4 +1,5 @@
 */*.py~
+.idea/*
 *.xcuserstate
 */*/project.xcworkspace
 *project.xcworkspace

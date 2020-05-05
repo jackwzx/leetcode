@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
+
 class Solution(object):
+
     def maxProduct(self, nums):
         max = 0
         sec = 0
@@ -16,7 +18,8 @@ class Solution(object):
                 sec = value
             elif third < value:
                 third = value
-        return max*sec*third
+        return max * sec * third
+
 
 if __name__ == '__main__':
     aList = raw_input()
