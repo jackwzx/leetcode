@@ -19,23 +19,34 @@ struct TreeNode {
 
 class Solution {
 public:
+    
+    // pre表示前一个节点的4
+    // 1判断当前的节点的值>pre
+    // 2 判断当前节点的Left
+    // 3 判断当前节点的right
     bool InOrder(TreeNode* root, long& pre) {
-        if (root == NULL) {
+        
+        if (root == nullptr) {
             return true;
         }
+        
         if (!InOrder(root->left, pre)) {
             return false;
         }
-        if (root->val <= pre) {
+        
+        if (pre <= root->val) {
             return false;
         }
+        
         pre = root->val;
+        
         return InOrder(root->right, pre);
     }
 
     bool isValidBST(TreeNode* root) {
-        long pre = LONG_MIN;
-        return InOrder(root, pre);
+        
+        long minLong = LONG_MIN;
+        return InOrder(root, minLong);
     }
 };
 
